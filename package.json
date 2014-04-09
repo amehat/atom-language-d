@@ -1,6 +1,6 @@
 {
   "name": "language-d",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "D language support in Atom",
   "engines": {
     "atom": "*",
