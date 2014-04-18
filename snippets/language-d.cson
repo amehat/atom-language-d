@@ -32,9 +32,15 @@
   'import':
     'prefix': 'im'
     'body': 'import '
+  'int':
+    'prefix': 'in'
+    'body': 'int'
   'interface':
     'prefix': 'in'
     'body': 'interface ${1:MyInterface} ${2:extends ${3:Parent} }{\n\t$0\n}'
+  'printf':
+    'prefix': 'pri'
+    'body': 'printf($1)'
   'private':
     'prefix': 'pr'
     'body': 'private '
@@ -67,17 +73,17 @@
     'body': 'try {\n\t$0\n}'
   'variable':
     'prefix': 'v'
-    'body': '${1:String} ${2:var}${3: = ${0:null}};'
+    'body': '${1:string} ${2:var}${3: = ${0:null}};'
 '.source.java':
   'break':
     'prefix': 'br'
     'body': 'break;\n'
   'constant string':
     'prefix': 'cos'
-    'body': 'static public final String ${1:var} = "$2";$0'
+    'body': 'static public final string ${1:var} = "$2";$0'
   'constant':
     'prefix': 'co'
-    'body': 'static public final ${1:String} ${2:var} = $3;$0'
+    'body': 'static public final ${1:string} ${2:var} = $3;$0'
   'default':
     'prefix': 'de'
     'body': 'default:\n\t$0'
@@ -87,15 +93,15 @@
   'import dunit.framework.TestCase;':
     'prefix': 'imt'
     'body': 'import dunit.framework.TestCase;\n$0'
-  'java.beans.':
-    'prefix': 'j.b'
-    'body': 'd.beans.'
-  'java.io.':
-    'prefix': 'j.i'
-    'body': 'd.io.'
-  'java.math.':
-    'prefix': 'j.m'
-    'body': 'd.math.'
+  'std.algorithm.':
+    'prefix': 'std.al'
+    'body': 'std.algorithm'
+  'std.array.':
+    'prefix': 'std.ar'
+    'body': 'std.array'
+  'std.ascii.':
+    'prefix': 'std.as'
+    'body': 'std.'
   'java.net.':
     'prefix': 'j.n'
     'body': 'd.net.'
@@ -114,6 +120,9 @@
   'println':
     'prefix': 'pl'
     'body': 'writeln($1);$0'
+  'super':
+    'prefix': 'su'
+    'body': 'super($1);$0'
   'test case':
     'prefix': 'tc'
     'body': 'public class ${1:MyTest} extends ${2:TestCase} {\n\t$0\n}'
