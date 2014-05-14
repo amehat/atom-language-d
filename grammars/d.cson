@@ -394,6 +394,14 @@
   'comments-inline':
     'patterns': [
       {
+        'begin': '/\\+'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.d'
+        'end': '\\+/'
+        'name': 'comment.block.d'
+      }
+      {
         'begin': '/\\*'
         'captures':
           '0':
