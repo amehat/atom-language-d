@@ -5,6 +5,9 @@
 'scopeName': 'source.d'
 'patterns': [
   {
+    'include': '#attributes'
+  }
+  {
     'include': '#comments'
   }
   {
@@ -12,6 +15,13 @@
   }
 ]
 'repository':
+  'attributes':
+    'patterns': [
+      {
+        'match': '@\\w*(?:\\((?:\\s*\\w+\\s*,?)+\\)+)?'
+        'name': 'storage.modifier.annotation.d'
+      }
+    ]
   'nesting-comments':
     'patterns': [
       {
