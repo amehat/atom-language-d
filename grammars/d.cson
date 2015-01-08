@@ -148,6 +148,18 @@
         'name': 'keyword.control.exception.d'
       }
       {
+        'match': '\\b(mixin)\\b'
+        'name': 'keyword.other.mixin.d'
+      }
+      {
+        'match': '\\b(pragma)\\b'
+        'name': 'keyword.other.pragma.d'
+      }
+      {
+        'match': '\\b(alias)\\b'
+        'name': 'keyword.other.alias.d'
+      }
+      {
         'begin': '\\b(cast)\\('
         'beginCaptures':
           '1':
