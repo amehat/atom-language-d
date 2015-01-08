@@ -63,4 +63,8 @@
         'match': '\\b(this|super)\\b'
         'name': 'variable.language.d'
       }
+      {
+        'match': '\\b([A-Z][A-Z0-9_]+)(?!\\.classinfo|\\s*\\w+\\s*=)\\b'
+        'name': 'constant.other.d'
+      }
     ]
