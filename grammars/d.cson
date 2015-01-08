@@ -205,6 +205,10 @@
         'name': 'keyword.operator.assignment.bitwise.d'
       }
       {
+        'match': '(!|&&|\\|\\|)'
+        'name': 'keyword.operator.boolean.d'
+      }
+      {
         'match': '(==|!=|<=|>=|<>|<|>)'
         'name': 'keyword.operator.comparison.d'
       }
