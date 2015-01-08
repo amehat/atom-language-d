@@ -9,8 +9,30 @@
   }
 ]
 'repository':
+  'nesting-comments':
+    'patterns': [
+      {
+        'begin': '/\\+'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.begin.d'
+        'end': '\\+/'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.end.d'
+        'patterns': [
+          {
+            'include': '#nesting-comments'
+          }
+        ]
+        'name': 'comment.block.d'
+      }
+    ]
   'comments':
     'patterns': [
+      {
+        'include': '#nesting-comments'
+      }
       {
         'begin': '/\\*'
         'beginCaptures':
