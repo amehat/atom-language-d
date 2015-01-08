@@ -16,6 +16,9 @@
   {
     'include': '#constants-and-special-vars'
   }
+  {
+    'include': '#keywords'
+  }
 ]
 'repository':
   'all-types':
@@ -124,6 +127,25 @@
       {
         'match': "\\'\\\\.\\'"
         'name': 'constant.character.escape.d'
+      }
+    ]
+  'keywords':
+    'patterns': [
+      {
+        'match': '\\b(if|else|switch|case|default)\\b'
+        'name': 'keyword.control.conditional.d'
+      }
+      {
+        'match': '\\b(for|foreach(?:_reverse)?|do|while)\\b'
+        'name': 'keyword.control.loop.d'
+      }
+      {
+        'match': '\\b(goto|break|continue)\\b'
+        'name': 'keyword.control.branch.d'
+      }
+      {
+        'match': '\\b(try|catch|finally|throw|scope)\\b'
+        'name': 'keyword.control.exception.d'
       }
     ]
   'primitive-arrays':
