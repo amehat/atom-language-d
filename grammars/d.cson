@@ -26,6 +26,9 @@
       {
         'include': '#primitive-types'
       }
+      {
+        'include': '#type-qualifiers'
+      }
     ]
   'attributes':
     'patterns': [
@@ -159,5 +162,25 @@
       {
         'match': '\\b[wd]?char(?!\\[)\\b'
         'name': 'storage.type.primitive.d'
+      }
+    ]
+  'type-qualifiers':
+    'patterns': [
+      {
+        'match': '\\b(const|immutable|inout|shared)(?!\\()\\b'
+        'name': 'storage.modifier.qualifier.d'
+      }
+      {
+        'begin': '\\b(const|immutable|inout|shared)\\('
+        'beginCaptures':
+          '1':
+            'name': 'storage.modifier.qualifier.d'
+        'end': '\\)'
+        'name': 'storage.type.qualifier.d'
+        'patterns': [
+          {
+            'include': '#all-types'
+          }
+        ]
       }
     ]
