@@ -157,6 +157,10 @@
         'name': 'keyword.control.exception.d'
       }
       {
+        'match': '\\b(deprecated)\\b'
+        'name': 'keyword.other.deprecated.d'
+      }
+      {
         'match': '\\b(mixin)\\b'
         'name': 'keyword.other.mixin.d'
       }
