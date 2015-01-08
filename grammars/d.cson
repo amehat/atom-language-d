@@ -46,7 +46,15 @@
     'patterns': [
       {
         'match': '@\\w*(?:\\((?:\\s*\\w+\\s*,?)+\\)+)?'
-        'name': 'storage.modifier.annotation.d'
+        'name': 'storage.modifier.attribute.d'
+      }
+      {
+        'begin': '\\b(extern)\\s*\\('
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.extern.d'
+        'end': '\\)'
+        'name': 'storage.modifier.linkage.d'
       }
     ]
   'nesting-comments':
