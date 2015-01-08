@@ -147,6 +147,66 @@
         'match': '\\b(try|catch|finally|throw|scope)\\b'
         'name': 'keyword.control.exception.d'
       }
+      {
+        'begin': '\\b(cast)\\('
+        'beginCaptures':
+          '1':
+            'name': 'keyword.operator.cast.d'
+        'end': '\\)'
+        'patterns': [
+          {
+            'include': '#all-types'
+          }
+        ]
+      }
+      {
+        'match': '='
+        'name': 'keyword.operator.assignment.d'
+      }
+      {
+        'match': '[\\+\\-\\*/%]'
+        'name': 'keyword.operator.arithmetic.d'
+      }
+      {
+        'match': '[\\+\\-\\*/%]='
+        'name': 'keyword.operator.assignment.arithmetic.d'
+      }
+      {
+        'match': '<<|>>?|\\||\\^|&'
+        'name': 'keyword.operator.bitwise.d'
+      }
+      {
+        'match': '(<<|>>?|\\||\\^|&)='
+        'name': 'keyword.operator.assignment.bitwise.d'
+      }
+      {
+        'match': '(==|!=|<=|>=|<>|<|>)'
+        'name': 'keyword.operator.comparison.d'
+      }
+      {
+        'match': '[\\?:]'
+        'name': 'keyword.control.ternary.d'
+      }
+      {
+        'match': '(?<=\\w)\\.(?=\\w)'
+        'name': 'keyword.operator.dereference.d'
+      }
+      {
+        'match': '~'
+        'name': 'keyword.operator.concatenation.d'
+      }
+      {
+        'match': '~='
+        'name': 'keyword.operator.assignment.concatenation.d'
+      }
+      {
+        'match': ','
+        'name': 'punctuation.comma.d'
+      }
+      {
+        'match': ';'
+        'name': 'punctuation.terminator.d'
+      }
     ]
   'primitive-arrays':
     'patterns': [
