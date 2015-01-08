@@ -7,6 +7,9 @@
   {
     'include': '#comments'
   }
+  {
+    'include': '#constants-and-special-vars'
+  }
 ]
 'repository':
   'nesting-comments':
@@ -48,5 +51,16 @@
           '0': 'name': 'punctuation.definition.comment.d'
         'end': '\\n'
         'name': 'comment.line.double-slash.d'
+      }
+    ]
+  'constants-and-special-vars':
+    'patterns': [
+      {
+        'match': '\\b(true|false|null)\\b'
+        'name': 'constant.language.d'
+      }
+      {
+        'match': '\\b(this|super)\\b'
+        'name': 'variable.language.d'
       }
     ]
