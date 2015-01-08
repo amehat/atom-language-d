@@ -270,11 +270,11 @@
               '1':
                 'name': 'punctuation.separator.d'
               '2':
-                'name': 'entity.name.import.bind.d'
+                'name': 'entity.name.import.selective.d'
               '3':
                 'name': 'punctuation.separator.d'
               '4':
-                'name': 'entity.name.import.bind.d'
+                'name': 'entity.name.import.selective.d'
           }
         ]
       }
