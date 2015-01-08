@@ -5,6 +5,9 @@
 'scopeName': 'source.d'
 'patterns': [
   {
+    'include': '#all-types'
+  }
+  {
     'include': '#attributes'
   }
   {
@@ -15,6 +18,15 @@
   }
 ]
 'repository':
+  'all-types':
+    'patterns': [
+      {
+        'include': '#primitive-arrays'
+      }
+      {
+        'include': '#primitive-types'
+      }
+    ]
   'attributes':
     'patterns': [
       {
@@ -109,5 +121,43 @@
       {
         'match': "\\'\\\\.\\'"
         'name': 'constant.character.escape.d'
+      }
+    ]
+  'primitive-arrays':
+    'patterns': [
+      {
+        'match': '\\b(?:void|bool|size_t|ptrdiff_t)(?:\\[\\w*\\])+'
+        'name': 'storage.type.primitive.array.d'
+      }
+      {
+        'match': '\\bu?(?:byte|short|int|long|cent)(?:\\[\\w*\\])+'
+        'name': 'storage.type.primitive.array.d'
+      }
+      {
+        'match': '\\b[ic]?(?:float|double|real)(?:\\[\\w*\\])+'
+        'name': 'storage.type.primitive.array.d'
+      }
+      {
+        'match': '\\b[wd]?string(?:\\[\\w*\\])*'
+        'name': 'storage.type.primitive.array.d'
+      }
+    ]
+  'primitive-types':
+    'patterns': [
+      {
+        'match': '\\b(?:void|bool|size_t|ptrdiff_t)(?!\\[)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\bu?(?:byte|short|int|long|cent)(?!\\[)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\b[ic]?(?:float|double|real)(?!\\[)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\b[wd]?char(?!\\[)\\b'
+        'name': 'storage.type.primitive.d'
       }
     ]
