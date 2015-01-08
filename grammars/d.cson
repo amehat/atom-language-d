@@ -22,6 +22,9 @@
   {
     'include': '#modules'
   }
+  {
+    'include': '#strings'
+  }
 ]
 'repository':
   'all-types':
@@ -348,6 +351,46 @@
         'patterns': [
           {
             'include': '#all-types'
+          }
+        ]
+      }
+    ]
+  'strings':
+    'patterns': [
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.d'
+        'end': '(")([cwd])?'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.string.end.d'
+          '2':
+            'name': 'punctuation.definition.string.postfix.d'
+        'name': 'string.quoted.double.d'
+        'patterns': [
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.d'
+          }
+        ]
+      }
+      {
+        'begin': 'r"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.d'
+        'end': '"([cwd])?'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.string.end.d'
+          '2':
+            'name': 'punctuation.definition.string.postfix.d'
+        'name': 'string.regex.d'
+        'patterns': [
+          {
+            'include': 'source.js.regexp'
           }
         ]
       }
