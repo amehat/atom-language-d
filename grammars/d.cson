@@ -19,6 +19,9 @@
   {
     'include': '#keywords'
   }
+  {
+    'include': '#modules'
+  }
 ]
 'repository':
   'all-types':
@@ -218,6 +221,50 @@
       {
         'match': ';'
         'name': 'punctuation.terminator.d'
+      }
+    ]
+  'modules':
+    'patterns': [
+      {
+        'match': '\\b(module)\\s+(\\w+(?:\\.\\w+)*)\\b'
+        'name': 'meta.module.d'
+        'captures':
+          '1':
+            'name': 'keyword.other.module.d'
+          '2':
+            'name': 'entity.name.module.d'
+      }
+      {
+        'begin': '\\b(import)\\s+'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.import.d'
+        'end': '(;)'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.terminator.d'
+        'name': 'meta.import.d'
+        'patterns': [
+          {
+            'match': '\\w+(?:(\\.)\\w+)*'
+            'name': 'entity.name.import.d'
+            'captures':
+              '1':
+                'name': 'punctuation.separator.d'
+          }
+          {
+            'match': '(:)\\s*(\\w+)(?:(,)\\s*(\\w+)\\s*)*'
+            'captures':
+              '1':
+                'name': 'punctuation.separator.d'
+              '2':
+                'name': 'entity.name.import.bind.d'
+              '3':
+                'name': 'punctuation.separator.d'
+              '4':
+                'name': 'entity.name.import.bind.d'
+          }
+        ]
       }
     ]
   'primitive-arrays':
