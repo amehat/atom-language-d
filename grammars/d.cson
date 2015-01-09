@@ -5,28 +5,40 @@
 'scopeName': 'source.d'
 'patterns': [
   {
-    'include': '#all-types'
-  }
-  {
-    'include': '#attributes'
-  }
-  {
-    'include': '#comments'
-  }
-  {
-    'include': '#constants-and-special-vars'
-  }
-  {
-    'include': '#keywords'
-  }
-  {
     'include': '#modules'
   }
   {
-    'include': '#strings'
+    'include': '#code'
   }
 ]
 'repository':
+  'code':
+    'patterns': [
+      {
+        'include': '#all-types'
+      }
+      {
+        'include': '#attributes'
+      }
+      {
+        'include': '#comments'
+      }
+      {
+        'include': '#constants-and-special-vars'
+      }
+      {
+        'include': '#imports'
+      }
+      {
+        'include': '#keywords'
+      }
+      {
+        'include': '#modules'
+      }
+      {
+        'include': '#strings'
+      }
+    ]
   'all-types':
     'patterns': [
       {
@@ -309,7 +321,7 @@
         'name': 'punctuation.terminator.d'
       }
     ]
-  'modules':
+  'module':
     'patterns': [
       {
         'match': '\\b(module)\\s+(\\w+(?:\\.\\w+)*)\\b'
@@ -320,6 +332,9 @@
           '2':
             'name': 'entity.name.module.d'
       }
+    ]
+  'imports':
+    'patterns': [
       {
         'begin': '\\b(?:(static)\\s+)?(import)\\s+'
         'beginCaptures':
@@ -335,7 +350,7 @@
         'patterns': [
           {
             'match': '\\w+(?:(\\.)\\w+)*'
-            'name': 'entity.name.import.d'
+            'name': 'support.other.import.d'
             'captures':
               '1':
                 'name': 'punctuation.separator.d'
