@@ -225,11 +225,15 @@
   'keywords':
     'patterns': [
       {
+        'match': '\\b(return)\\b'
+        'name': 'keyword.control.return.d'
+      }
+      {
         'match': '\\b(if|else|switch|case|default)\\b'
         'name': 'keyword.control.conditional.d'
       }
       {
-        'match': '\\b(for|foreach(?:_reverse)?|do|while)\\b'
+        'match': '\\b(for|foreach(_reverse)?|do|while)\\b'
         'name': 'keyword.control.loop.d'
       }
       {
