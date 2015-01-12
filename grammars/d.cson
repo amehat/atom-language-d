@@ -438,6 +438,14 @@
         ]
       }
       {
+        'match': '\\b(new)\\b'
+        'name': 'keyword.operator.new.d'
+      }
+      {
+        'match': '\\b(is)\\b'
+        'name': 'keyword.operator.is.d'
+      }
+      {
         'match': '='
         'name': 'keyword.operator.assignment.d'
       }
