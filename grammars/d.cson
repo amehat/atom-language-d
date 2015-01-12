@@ -669,3 +669,23 @@
         ]
       }
     ]
+  'unittests':
+    'patterns': [
+      {
+        'begin': '\\b(unittest)\\b'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.unittest.d'
+        'end': '}'
+        'name': 'meta.unittest.d'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+        ]
+      }
+      {
+        'match': '\\b(assert)\\b'
+        'name': 'keyword.other.assert.d'
+      }
+    ]
