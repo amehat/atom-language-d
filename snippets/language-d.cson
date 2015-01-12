@@ -1,4 +1,4 @@
-'.source.d, .source.groovy':
+'.source.d':
   'abstract':
     'prefix': 'ab'
     'body': 'abstract '
@@ -74,7 +74,6 @@
   'variable':
     'prefix': 'v'
     'body': '${1:string} ${2:var}${3: = ${0:null}};'
-'.source.java':
   'break':
     'prefix': 'br'
     'body': 'break;\n'
@@ -90,9 +89,6 @@
   'for (each)':
     'prefix': 'fore'
     'body': 'for ($1 : $2) {\n\t$0\n}'
-  'import dunit.framework.TestCase;':
-    'prefix': 'imt'
-    'body': 'import dunit.framework.TestCase;\n$0'
   'std.algorithm.':
     'prefix': 'std.al'
     'body': 'std.algorithm'
@@ -102,12 +98,6 @@
   'std.ascii.':
     'prefix': 'std.as'
     'body': 'std.'
-  'java.net.':
-    'prefix': 'j.n'
-    'body': 'd.net.'
-  'java.util.':
-    'prefix': 'j.u'
-    'body': 'd.util.'
   'method (main)':
     'prefix': 'main'
     'body': 'void main() {\n\t$0\n}'
