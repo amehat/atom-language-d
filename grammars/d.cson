@@ -15,13 +15,13 @@
   'code':
     'patterns': [
       {
-        'include': '#all-types'
-      }
-      {
-        'include': '#attributes'
-      }
-      {
         'include': '#comments'
+      }
+      {
+        'include': '#keywords'
+      }
+      {
+        'include': '#classes'
       }
       {
         'include': '#functions'
@@ -30,16 +30,19 @@
         'include': '#constants-and-special-vars'
       }
       {
+        'include': '#strings'
+      }
+      {
         'include': '#imports'
       }
       {
-        'include': '#keywords'
+        'include': '#all-types'
       }
       {
-        'include': '#modules'
+        'include': '#attributes'
       }
       {
-        'include': '#strings'
+        'include': '#unittests'
       }
     ]
   'all-types':
