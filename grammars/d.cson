@@ -185,32 +185,32 @@
         'name': 'variable.language.d'
       }
       {
-        'match': '\\b([A-Z][A-Z0-9_]+)(?!\\.classinfo|\\s*\\w+\\s*=)\\b'
+        'match': '\\b[A-Z][A-Z0-9_]+(?!\\.classinfo|\\s*\\w+\\s*=)\\b'
         'name': 'constant.other.d'
       }
       {
         'comment': 'decimal integers'
-        'match': '\\b(?:0|[1-9][\\d_]*)(?:[LuU]|L[uU]|[uU]L)?(?!\\.)\\b'
+        'match': '\\b(?<!\\.)\\d[\\d_]*(?:[LuU]|L[uU]|[uU]L)?(?!\\.)\\b'
         'name': 'constant.numeric.integer.decimal.d'
       }
       {
         'comment': 'binary integers'
-        'match': '\\b0[bB][01_]*(?:[iLuU]|L[uU]|[uU]L)?\\b'
+        'match': '\\b0[bB]_*[01][01_]*(?:[iLuU]|L[uU]|[uU]L)?\\b'
         'name': 'constant.numeric.integer.binary.d'
       }
       {
         'comment': 'hex integers'
-        'match': '\\b0[xX][\\da-fA-F_]*[\\da-fA-F][\\da-fA-F_]*(?:[iLuU]|L[uU]|[uU]L)?(?!\\.)\\b'
+        'match': '\\b0[xX](?![^\\.]*\\.)(?=_*\\h)[\\h_]+(?:[iLuU]|L[uU]|[uU]L)?\\b'
         'name': 'constant.numeric.integer.hex.d'
       }
       {
         'comment': 'decimal floats'
-        'match': '\\b((\\d+\\.?\\d*)|(\\.?\\d+))([eE][\\+-]?\\d+)?[ifFL]?\\b'
+        'match': '(?<![\\.\\w])(?=[\\.\\d])(?=[_\\.]*\\d)\\d*\\.\\d*([eE][\\+-]?\\d+)?[ifFL]?\\b'
         'name': 'constant.numeric.float.decimal.d'
       }
       {
         'comment': 'hex floats'
-        'match': '\\b0[xX](([\\da-fA-F_]+\\.[\\da-fA-F_]*)|(\\.[\\da-fA-F_]+))[pP][\\+-]?\\d+[ifFL]?\\b'
+        'match': '\\b0[xX](?=\\H*\\h)[\\h_]*(\\.[\\h_]*)?[pP][\\+-]?\\d+[ifFL]?\\b'
         'name': 'constant.numeric.float.hex.d'
       }
       {
