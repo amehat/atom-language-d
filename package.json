@@ -6,7 +6,7 @@
     "atom": "*",
     "node": "*"
   },
-  "homepage": "httpgithub.com/amehat/atom-language-d",
+  "homepage": "https://github.com/amehat/atom-language-d",
   "repository": {
     "type": "git",
     "url": "https://github.com/amehat/atom-language-d.git"
