@@ -24,6 +24,9 @@
         'include': '#comments'
       }
       {
+        'include': '#functions'
+      }
+      {
         'include': '#constants-and-special-vars'
       }
       {
@@ -220,6 +223,102 @@
       {
         'match': "\\'\\\\.\\'"
         'name': 'constant.character.escape.d'
+      }
+    ]
+  'functions':
+    'patterns': [
+      {
+        'begin': '([\\w\\(\\)\\[\\]\\.,!]+)\\s+(\\w+)\\s*(?=\\([^\\)]*\\))(?!.*;)'
+        'beginCaptures':
+          '1':
+            'name': 'storage.type.return.d'
+          '2':
+            'name': 'entity.name.function.d'
+        'end': '}'
+        'name': 'meta.function.d'
+        'patterns': [
+          {
+            'begin': '(?<=\\w|\\))\\s*\\('
+            'end': '\\)(?!\\()'
+            'contentName': 'meta.function.parameters.d'
+            'patterns': [
+              {
+                'include': '#attributes'
+              }
+              {
+                'include': '#all-types'
+              }
+              {
+                'match': '\\w+'
+                'name': 'variable.parameter.d'
+              }
+            ]
+          }
+          {
+            'begin': '(?<=\\))'
+            'end': '(?=\\{|in|out|body)'
+            'name': 'meta.function.attributes.d'
+            'patterns': [
+              {
+                'include': '#attributes'
+              }
+            ]
+          }
+          {
+            'begin': '\\b(in)\\b'
+            'beginCaptures':
+              '1':
+                'name': 'keyword.control.contract.pre.d'
+            'end': '}'
+            'name': 'meta.function.contract.pre.d'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+          {
+            'begin': '\\b(out)(?:\\s*\\(\\s*(result)\\s*\\))?'
+            'beginCaptures':
+              '1':
+                'name': 'keyword.control.contract.post.d'
+              '2':
+                'name': 'variable.parameter.result.d'
+            'end': '}'
+            'name': 'meta.function.contract.post.d'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+          {
+            'begin': '\\b(body)\\b'
+            'beginCaptures':
+              '1':
+                'name': 'keyword.control.body.d'
+            'end': '(?=})'
+            'name': 'meta.function.body.d'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+          {
+            'begin': '{'
+            'beginCaptures':
+              '1':
+                'name': 'keyword.control.body.d'
+            'end': '(?=})'
+            'name': 'meta.function.body.d'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+        ]
       }
     ]
   'keywords':
