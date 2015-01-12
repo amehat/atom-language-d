@@ -321,6 +321,46 @@
         ]
       }
     ]
+  'classes':
+    'patterns': [
+      {
+        'begin': '\\b(class|struct|interface|template|union)\\s+(\\w+)\\s*'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.type.d'
+          '2':
+            'name': 'entity.name.class.d'
+        'end': '}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.type.end.d'
+        'name': 'meta.class.d'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+          {
+            'include': '#invariants'
+          }
+        ]
+      }
+    ]
+  'invariants':
+    'patterns': [
+      {
+        'begin': '\\b(invariant)\\s*\\(\\s*\\)'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.invariant.d'
+        'end': '}'
+        'name': 'meta.class.invariant.d'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+        ]
+      }
+    ]
   'keywords':
     'patterns': [
       {
