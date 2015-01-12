@@ -5,7 +5,7 @@
 'scopeName': 'source.d'
 'patterns': [
   {
-    'include': '#modules'
+    'include': '#module'
   }
   {
     'include': '#code'
