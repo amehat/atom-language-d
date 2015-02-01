@@ -367,126 +367,28 @@
   'keywords':
     'patterns': [
       {
-        'match': '\\b(return)\\b'
-        'name': 'keyword.control.return.d'
+        'match': '\\b(if|else|else if|switch|return|case|default)\\b'
+        'name': 'keyword.control.d'
       }
       {
-        'begin': '\\b(if|else|switch)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.control.conditional.d'
-        'end': '}'
-        'name': 'meta.block.conditional.d'
-        'patterns': [
-          {
-            'include': '#code'
-          }
-        ]
-      }
-      {
-        'match': '\\b(case|default)\\b'
-        'name': 'keyword.control.switch.d'
-      }
-      {
-        'begin': '\\b(for|foreach(?:_reverse)?|do|while)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.control.loop.d'
-        'end': '}'
-        'name': 'meta.block.loop.d'
-        'patterns': [
-          {
-            'include': '#code'
-          }
-        ]
+        'match': '\\b(for(each(_reverse)?)?|do|while)\\b'
+        'name': 'keyword.control.loop.d'
       }
       {
         'match': '\\b(goto|break|continue)\\b'
         'name': 'keyword.control.branch.d'
       }
       {
-        'match': '\\b(try)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.control.exception.try.d'
-        'end': '}'
-        'name': 'meta.block.exception.try.d'
-        'patterns': [
-          {
-            'include': '#code'
-          }
-        ]
+        'match': '\\b(try|catch|finally|throw|scope)\\b'
+        'name': 'keyword.control.exception.d'
       }
       {
-        'begin': '\\b(catch)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.control.exception.catch.d'
-        'end': '}'
-        'name': 'meta.block.exception.catch.d'
-        'patterns': [
-          {
-            'include': '#code'
-          }
-        ]
+        'match': '\\b(deprecated|mixin|pragma|alias|cast|new|is|in)\\b'
+        'name': 'keyword.other.d'
       }
       {
-        'begin': '\\b(finally)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.control.exception.finally.d'
-        'end': '}'
-        'name': 'meta.block.exception.finally.d'
-        'patterns': [
-          {
-            'include': '#code'
-          }
-        ]
-      }
-
-      {
-        'match': '\\b(throw)\\b'
-        'name': 'keyword.control.exception.throw.d'
-      }
-      {
-        'match': '\\b(scope)\\b'
-        'name': 'keyword.control.exception.scope.d'
-      }
-      {
-        'match': '\\b(deprecated)\\b'
-        'name': 'keyword.other.deprecated.d'
-      }
-      {
-        'match': '\\b(mixin)\\b'
-        'name': 'keyword.other.mixin.d'
-      }
-      {
-        'match': '\\b(pragma)\\b'
-        'name': 'keyword.other.pragma.d'
-      }
-      {
-        'match': '\\b(alias)\\b'
-        'name': 'keyword.other.alias.d'
-      }
-      {
-        'begin': '\\b(cast)\\('
-        'beginCaptures':
-          '1':
-            'name': 'keyword.operator.cast.d'
-        'end': '\\)'
-        'patterns': [
-          {
-            'include': '#all-types'
-          }
-        ]
-      }
-      {
-        'match': '\\b(new)\\b'
-        'name': 'keyword.operator.new.d'
-      }
-      {
-        'match': '\\b(is)\\b'
-        'name': 'keyword.operator.is.d'
+        'match': '\\b(assert)\\b'
+        'name': 'keyword.other.assert.d'
       }
       {
         'match': '='
