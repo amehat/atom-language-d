@@ -446,48 +446,76 @@
   'module':
     'patterns': [
       {
-        'match': '\\b(module)\\s+(\\w+(?:\\.\\w+)*)\\b'
-        'name': 'meta.module.d'
-        'captures':
-          '1':
+        'begin': '\\b(module)\\b'
+        'beginCaptures':
+          '0':
             'name': 'keyword.other.module.d'
-          '2':
+        'end': ';'
+        'name': 'meta.module.d'
+        'patterns': [
+          {
+            'match': '\\w+'
             'name': 'entity.name.module.d'
+          }
+          {
+            'match': '\\.'
+            'name': 'punctuation.separator.d'
+          }
+        ]
       }
     ]
+          '1':
+          '2':
+      }
+    ]
+    'patterns': [
+      {
+        'beginCaptures':
+          '1':
+          '2':
   'imports':
     'patterns': [
       {
-        'begin': '\\b(?:(static)\\s+)?(import)\\s+'
+        'begin': '\\b(import)\\b'
         'beginCaptures':
-          '1':
-            'name': 'keyword.other.static.d'
-          '2':
+          '0':
             'name': 'keyword.other.import.d'
-        'end': '(;)'
+        'end': ';'
         'endCaptures':
-          '1':
+          '0':
             'name': 'punctuation.terminator.d'
         'name': 'meta.import.d'
         'patterns': [
           {
-            'match': '\\w+(?:(\\.)\\w+)*'
-            'name': 'support.other.import.d'
-            'captures':
-              '1':
+            'begin': '\\b'
+            'end': '(?=[,:;])'
+            'patterns': [
+              {
+                'match': '\\w+'
+                'name': 'support.other.module.d'
+              }
+              {
+                'match': '\\.'
                 'name': 'punctuation.separator.d'
+              }
+            ]
           }
           {
-            'match': '(:)\\s*(\\w+)(?:(,)\\s*(\\w+)\\s*)*'
-            'captures':
-              '1':
+            'begin': ':'
+            'beginCaptures':
+              '0':
                 'name': 'punctuation.separator.d'
-              '2':
-                'name': 'entity.name.import.selective.d'
-              '3':
+            'end': '(?=;)'
+            'patterns': [
+              {
+                'match': '\\w+'
+                'name': 'support.type.d'
+              }
+              {
+                'match': '\\.'
                 'name': 'punctuation.separator.d'
-              '4':
-                'name': 'entity.name.import.selective.d'
+              }
+            ]
           }
         ]
       }
