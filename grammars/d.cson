@@ -242,7 +242,7 @@
         'patterns': [
           {
             'begin': '(?<=\\w|\\))\\s*\\('
-            'end': '\\)(?!\\()'
+            'end': '(?=\\))(?!\\()'
             'contentName': 'meta.function.parameters.d'
             'patterns': [
               {
@@ -258,7 +258,7 @@
             ]
           }
           {
-            'begin': '(?<=\\))'
+            'begin': '\\)'
             'end': '(?=\\{|in|out|body)'
             'name': 'meta.function.attributes.d'
             'patterns': [
