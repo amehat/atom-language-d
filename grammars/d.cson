@@ -520,86 +520,8 @@
         ]
       }
     ]
-  'primitive-arrays':
     'patterns': [
       {
-        'match': '\\b(?:void|bool|size_t|ptrdiff_t)(?:\\[\\w*\\])+'
-        'name': 'storage.type.primitive.array.d'
-      }
-      {
-        'match': '\\bu?(?:byte|short|int|long|cent)(?:\\[\\w*\\])+'
-        'name': 'storage.type.primitive.array.d'
-      }
-      {
-        'match': '\\b[ic]?(?:float|double|real)(?:\\[\\w*\\])+'
-        'name': 'storage.type.primitive.array.d'
-      }
-      {
-        'match': '\\b[wd]?string(?:\\[\\w*\\])*'
-        'name': 'storage.type.primitive.array.d'
-      }
-    ]
-  'primitive-types':
-    'patterns': [
-      {
-        'match': '\\b(?:void|bool|size_t|ptrdiff_t)(?!\\[)\\b'
-        'name': 'storage.type.primitive.d'
-      }
-      {
-        'match': '\\bu?(?:byte|short|int|long|cent)(?!\\[)\\b'
-        'name': 'storage.type.primitive.d'
-      }
-      {
-        'match': '\\b[ic]?(?:float|double|real)(?!\\[)\\b'
-        'name': 'storage.type.primitive.d'
-      }
-      {
-        'match': '\\b[wd]?char(?!\\[)\\b'
-        'name': 'storage.type.primitive.d'
-      }
-    ]
-  'object-types':
-    'patterns': [
-      {
-        'match': '\\b[A-Z]\\w*[a-z]\\w*(?!\\[)\\b'
-        'name': 'storage.type.class.d'
-      }
-      {
-        'begin': '\\b[A-Z]\\w*[a-z]\\w*(!)\\(?'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.operator.template.d'
-        'end': '\\)?\\b'
-        'name': 'storage.type.template.class.d'
-        'patterns': [
-          {
-            'include': '#all-types'
-          }
-        ]
-      }
-      {
-        'match': '\\b[A-Z]\\w*[a-z]\\w*(?:\\[\\w*\\])+'
-        'name': 'storage.type.class.array.d'
-      }
-    ]
-  'type-qualifiers':
-    'patterns': [
-      {
-        'match': '\\b(const|immutable|inout|shared)(?!\\()\\b'
-        'name': 'storage.modifier.qualifier.d'
-      }
-      {
-        'begin': '\\b(const|immutable|inout|shared)\\('
-        'beginCaptures':
-          '1':
-            'name': 'storage.modifier.qualifier.d'
-        'end': '\\)'
-        'name': 'storage.type.qualifier.d'
-        'patterns': [
-          {
-            'include': '#all-types'
-          }
-        ]
       }
     ]
   'strings':
@@ -640,6 +562,32 @@
             'include': 'source.js.regexp'
           }
         ]
+      }
+  'types':
+    'patterns': [
+      {
+        'match': '\\b(void|bool|size_t|ptrdiff_t)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\bu?(byte|short|int|long|cent)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\b[ic]?(float|double|real)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\b[wd]?(char|string)\\b'
+        'name': 'storage.type.primitive.d'
+      }
+      {
+        'match': '\\b(?=[^a-z]*[a-z])[A-Z]\\w+\\b'
+        'name': 'storage.type.class.d'
+      }
+      {
+        'match': '\\b(const|immutable|inout|shared)\\b'
+        'name': 'storage.modifier.qualifier.d'
       }
     ]
   'unittests':
