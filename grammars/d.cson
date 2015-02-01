@@ -139,7 +139,7 @@
         'name': 'storage.modifier.qualifier.d'
       }
     ]
-  'nesting-comments':
+  'comments-nesting':
     'patterns': [
       {
         'begin': '/\\+'
@@ -152,7 +152,7 @@
             'name': 'punctuation.definition.comment.end.d'
         'patterns': [
           {
-            'include': '#nesting-comments'
+            'include': '#comments-nesting'
           }
         ]
         'name': 'comment.block.d'
@@ -161,7 +161,7 @@
   'comments':
     'patterns': [
       {
-        'include': '#nesting-comments'
+        'include': '#comments-nesting'
       }
       {
         'begin': '/\\*'
