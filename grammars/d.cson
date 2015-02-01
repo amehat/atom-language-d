@@ -563,6 +563,25 @@
           }
         ]
       }
+      {
+        'begin': '`'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.d'
+        'end': '`([cwd])?'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.string.end.d'
+          '2':
+            'name': 'punctuation.definition.string.postfix.d'
+        'name': 'string.regex.d'
+        'patterns': [
+          {
+            'include': 'source.js.regexp'
+          }
+        ]
+      }
+    ]
   'types':
     'patterns': [
       {
