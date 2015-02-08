@@ -83,36 +83,8 @@
         'name': 'storage.modifier.safety.d'
       }
       {
-        'match': '\\b(nothrow)\\b'
-        'name': 'storage.modifier.nothrow.d'
-      }
-      {
-        'match': '\\b(pure)\\b'
-        'name': 'storage.modifier.pure.d'
-      }
-      {
-        'match': '\\b(ref)\\b'
-        'name': 'storage.modifier.ref.d'
-      }
-      {
-        'match': '\\b(override)\\b'
-        'name': 'storage.modifier.override.d'
-      }
-      {
-        'match': '\\b(static)\\b'
-        'name': 'storage.modifier.static.d'
-      }
-      {
-        'match': '\\b(auto)\\b'
-        'name': 'storage.modifier.auto.d'
-      }
-      {
-        'match': '\\b(scope)\\b'
-        'name': 'storage.modifier.scope.d'
-      }
-      {
-        'match': '\\b(abstract)\\b'
-        'name': 'storage.modifier.abstract.d'
+        'match': '\\b(scope|auto|static|override|final|abstract|synchronized|lazy|align|deprecated|pure|nothrow|ref)\\b'
+        'name': 'storage.modifier.d'
       }
       {
         'begin': '\\b(extern)\\s*\\('
@@ -121,14 +93,6 @@
             'name': 'keyword.other.extern.d'
         'end': '\\)'
         'name': 'storage.modifier.linkage.d'
-      }
-      {
-        'match': '\\b(align)\\b'
-        'name': 'storage.modifier.align.d'
-      }
-      {
-        'match': '\\b(deprecated)\\b'
-        'name': 'storage.modifier.deprecated.d'
       }
       {
         'match': '\\b(private|package|protected|public|export)\\b'
