@@ -343,16 +343,40 @@
         'name': 'keyword.control.branch.d'
       }
       {
-        'match': '\\b(try|catch|finally|throw|scope)\\b'
+        'match': '\\b(version|with|scope|asm|mixin)\\b'
+        'name': 'keyword.control.d'
+      }
+      {
+        'match': '\\b(pragma)\\b'
+        'name': 'keyword.control.pragma.d'
+      }
+      {
+        'match': '\\b(alias|typedef)\\b'
+        'name': 'keyword.control.alias.d'
+      }
+      {
+        'match': '\\b(try|catch|finally|throw)\\b'
         'name': 'keyword.control.exception.d'
       }
       {
-        'match': '\\b(deprecated|mixin|pragma|alias|cast|new|is|in)\\b'
+        'match': '\\b(deprecated|mixin|pragma|alias|new|is|in)\\b'
         'name': 'keyword.other.d'
+      }
+      {
+        'match': '\\b(function|delegate)\\b'
+        'name': 'keyword.other.function.d'
       }
       {
         'match': '\\b(assert)\\b'
         'name': 'keyword.other.assert.d'
+      }
+      {
+        'match': '\\b(debug)\\b'
+        'name': 'keyword.other.debug.d'
+      }
+      {
+        'match': '\\b(cast|typeof|typeid)\\b'
+        'name': 'keyword.operator.d'
       }
       {
         'match': '='
@@ -367,6 +391,10 @@
         'name': 'keyword.operator.assignment.arithmetic.d'
       }
       {
+        'match': '(\\-\\-|\\+\\+)'
+        'name': 'keyword.operator.increment-decrement.d'
+      }
+      {
         'match': '<<|>>?|\\||\\^|&'
         'name': 'keyword.operator.bitwise.d'
       }
@@ -376,7 +404,7 @@
       }
       {
         'match': '(!|&&|\\|\\|)'
-        'name': 'keyword.operator.boolean.d'
+        'name': 'keyword.operator.logical.d'
       }
       {
         'match': '(==|!=|<=|>=|<>|<|>)'
@@ -405,6 +433,10 @@
       {
         'match': ';'
         'name': 'punctuation.terminator.d'
+      }
+      {
+        'match': '\\b(op(Index)?Unary|opCast|opBinary(Right)?|opEquals|opCmp|opCall|opAssign|opIndex((Op)?Assign)?|opSlice|opDollar|opDispatch)\\b'
+        'name': 'keyword.operator.overload.d'
       }
     ]
   'module':
