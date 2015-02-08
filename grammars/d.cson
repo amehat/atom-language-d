@@ -151,6 +151,10 @@
         'name': 'constant.language.d'
       }
       {
+        'match': '\\b__(FILE|LINE|MODULE|(PRETTY_)?FUNCTION)__\\b'
+        'name': 'keyword.other.traits.d'
+      }
+      {
         'match': '\\b(this|super)\\b'
         'name': 'variable.language.d'
       }
