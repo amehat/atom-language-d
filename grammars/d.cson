@@ -523,7 +523,7 @@
         'name': 'string.regex.d'
         'patterns': [
           {
-            'include': 'source.js.regexp'
+            'include': 'source.regexp.python'
           }
         ]
       }
