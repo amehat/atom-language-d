@@ -195,6 +195,37 @@
         'name': 'constant.character.escape.d'
       }
     ]
+  'classes':
+    'patterns': [
+      {
+        'begin': '\\b(class|struct|interface|template|union)\\s+(\\w+)'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.other.type.d'
+          '2':
+            'name': 'entity.name.class.d'
+        'end': '(?<=})'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.type.end.d'
+        'name': 'meta.class.d'
+        'patterns': [
+          {
+            'begin': ":"
+            'end': '(?={)'
+            'name': 'meta.class.inheritance.d'
+            'patterns': [
+              {
+                '#include': '#types'
+              }
+            ]
+          }
+          {
+            'include': '#block'
+          }
+        ]
+      }
+    ]
   'functions':
     'patterns': [
       {
@@ -277,37 +308,6 @@
                 'include': '#block'
               }
             ]
-          }
-        ]
-      }
-    ]
-  'classes':
-    'patterns': [
-      {
-        'begin': '\\b(class|struct|interface|template|union)\\s+(\\w+)'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.other.type.d'
-          '2':
-            'name': 'entity.name.class.d'
-        'end': '(?<=})'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.section.type.end.d'
-        'name': 'meta.class.d'
-        'patterns': [
-          {
-            'begin': ":"
-            'end': '(?={)'
-            'name': 'meta.class.inheritance.d'
-            'patterns': [
-              {
-                '#include': '#types'
-              }
-            ]
-          }
-          {
-            'include': '#block'
           }
         ]
       }
