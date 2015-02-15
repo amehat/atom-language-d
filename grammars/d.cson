@@ -405,6 +405,10 @@
         'name': 'keyword.operator.assignment.concatenation.d'
       }
       {
+        'match': '=>'
+        'name': 'keyword.operator.lambda.d'
+      }
+      {
         'match': ','
         'name': 'punctuation.comma.d'
       }
@@ -600,9 +604,5 @@
             'include': '#block'
           }
         ]
-      }
-      {
-        'match': '\\b(assert)\\b'
-        'name': 'keyword.other.assert.d'
       }
     ]
