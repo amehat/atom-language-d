@@ -198,7 +198,7 @@
   'functions':
     'patterns': [
       {
-        'begin': '([\\w\\(\\)\\[\\]\\.,!]+)\\s+(\\w+)\\s*(?=\\([^\\)]*\\))(?!.*;)'
+        'begin': '((?=\\W*\\w)\\S+)\\s+(\\w+)\\s*(?=\\([^\\)]*\\))(?![^{]*;)'
         'beginCaptures':
           '1':
             'name': 'storage.type.return.d'
@@ -284,7 +284,7 @@
   'classes':
     'patterns': [
       {
-        'begin': '\\b(class|struct|interface|template|union)\\s+(\\w+)\\s*'
+        'begin': '\\b(class|struct|interface|template|union)\\s+(\\w+)'
         'beginCaptures':
           '1':
             'name': 'keyword.other.type.d'
@@ -297,9 +297,15 @@
         'name': 'meta.class.d'
         'patterns': [
           {
-            'include': '#invariants'
+            'begin': ":"
+            'end': '(?={)'
+            'name': 'meta.class.inheritance.d'
+            'patterns': [
+              {
+                '#include': '#types'
+              }
+            ]
           }
-        ]
           {
             'include': '#block'
           }
@@ -337,7 +343,7 @@
         'name': 'keyword.control.exception.d'
       }
       {
-        'match': '\\b(deprecated|mixin|pragma|alias|new|is|in)\\b'
+        'match': '\\b(deprecated|mixin|pragma|new|is|in)\\b'
         'name': 'keyword.other.d'
       }
       {
