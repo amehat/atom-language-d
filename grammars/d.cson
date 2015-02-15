@@ -45,21 +45,6 @@
         'include': '#unittests'
       }
     ]
-  'all-types':
-    'patterns': [
-      {
-        'include': '#primitive-arrays'
-      }
-      {
-        'include': '#primitive-types'
-      }
-      {
-        'include': '#object-types'
-      }
-      {
-        'include': '#type-qualifiers'
-      }
-    ]
   'attributes':
     'patterns': [
       {
@@ -217,7 +202,7 @@
                 'include': '#attributes'
               }
               {
-                'include': '#all-types'
+                'include': '#types'
               }
               {
                 'match': '\\w+'
