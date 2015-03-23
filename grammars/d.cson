@@ -462,18 +462,12 @@
         'name': 'meta.import.d'
         'patterns': [
           {
-            'begin': '\\b'
-            'end': '(?=[,:;])'
-            'patterns': [
-              {
-                'match': '\\w+'
-                'name': 'support.other.module.d'
-              }
-              {
-                'match': '\\.'
-                'name': 'punctuation.separator.d'
-              }
-            ]
+            'match': '\\w+'
+            'name': 'support.other.module.d'
+          }
+          {
+            'match': '\\.'
+            'name': 'punctuation.separator.d'
           }
           {
             'begin': ':'
