@@ -315,7 +315,7 @@
   'keywords':
     'patterns': [
       {
-        'match': '\\b(if|else|else if|switch|return|case|default)\\b'
+        'match': '\\b(if|else|else if|static if|switch|return|case|default)\\b'
         'name': 'keyword.control.d'
       }
       {
