@@ -9,6 +9,9 @@
     'include': '#comments'
   }
   {
+    'include': '#parentheses'
+  }
+  {
     'include': '#imports'
   }
   {
@@ -69,7 +72,11 @@
         'name': 'storage.modifier.safety.d'
       }
       {
-        'match': '\\b(scope|auto|static|override|final|abstract|synchronized|lazy|align|deprecated|pure|nothrow|ref)\\b'
+        'match': '\\b(scope|auto|override|final|abstract|synchronized|lazy|align|deprecated|pure|nothrow|ref)\\b'
+        'name': 'storage.modifier.d'
+      }
+      {
+        'match': '\\b(static)(?!\s+if)\\b'
         'name': 'storage.modifier.d'
       }
       {
@@ -233,20 +240,34 @@
   'functions':
     'patterns': [
       {
-        'begin': '((?=\\W*\\w)\\S+)\\s+(\\w+)\\s*(?=\\([^\\)]*\\))(?![^{]*;)'
+        'begin': '''(?x)
+          ((?=\\S*\\w)[\\w\\[\\]\\(\\)\\. !,]+) # return type
+          \\s+
+          (?!while|for|do|if|else|switch|assert|enforce|const|immutable|shared|version|function|delegate) # function name is not keyword
+          (\\w+)                      # function name
+          \\s*
+          (?=\\([^\\)]*\\))           # has parentheses following
+          (?![^{]*;)                  # does not have semicolon before braces (hacky)
+          '''
         'beginCaptures':
           '1':
             'name': 'storage.type.return.d'
           '2':
             'name': 'entity.name.function.d'
+          '3':
+            'name': 'keyword.other.function.d'
         'end': '(?<=})'
         'name': 'meta.function.d'
         'patterns': [
           {
-            'begin': '(?<=\\w|\\))\\s*\\('
-            'end': '(?=\\))(?!\\()'
+            'begin': '\\('
+            'end': '\\)'
             'contentName': 'meta.function.parameters.d'
             'patterns': [
+              {
+                'match': '\\w+'
+                'name': 'variable.parameter.d'
+              }
               {
                 'include': '#attributes'
               }
@@ -254,24 +275,39 @@
                 'include': '#types'
               }
               {
-                'match': '\\w+'
-                'name': 'variable.parameter.d'
+                'include': '#parentheses'
               }
             ]
           }
           {
-            'begin': '(\\))'
-            'end': '(?={|\\b(in|out)\\b)'
-            'name': 'meta.function.attributes.d'
+            'include': '#attributes'
+          }
+          # {
+          #   'begin': '(\\))'
+          #   'end': '(?={|\\b(in|out)\\b)'
+          #   'name': 'meta.function.attributes.d'
+          #   'patterns': [
+          #     {
+          #       'include': '#attributes'
+          #     }
+          #   ]
+          # }
+          {
+            'begin': '(if)\\s*\\('
+            'beginCaptures':
+              '1':
+                'name': 'keyword.control.constraint.d'
+            'end': '\\)'
+            'name': 'meta.function.constraint.d'
             'patterns': [
               {
-                'include': '#attributes'
+                'include': '$self'
               }
             ]
           }
           {
             'begin': '(?=in|out)'
-            'end': '\\b(?=body)\\b'
+            'end': '\\b(?=body)'
             'patterns': [
               {
                 'begin': '\\b(in)\\b'
@@ -351,11 +387,23 @@
         'name': 'keyword.other.d'
       }
       {
-        'match': '\\b(function|delegate)\\b'
-        'name': 'keyword.other.function.d'
+        'begin': '\\b(function|delegate)\\s*\\('
+        'beginCaptures':
+          '0':
+            'name': 'keyword.other.function.d'
+        'end': '\\)'
+        'patterns': [
+          {
+            'include': '#types'
+          }
+          {
+            'match': '\\w+'
+            'name': 'variable.parameter.d'
+          }
+        ]
       }
       {
-        'match': '\\b(assert)\\b'
+        'match': '\\b((static\\s+)?assert)\\b'
         'name': 'keyword.other.assert.d'
       }
       {
@@ -509,6 +557,19 @@
         'patterns': [
           {
             'include': '#block'
+          }
+        ]
+      }
+    ]
+  'parentheses':
+    'patterns': [
+      {
+        'begin': '\\('
+        'end': '\\)'
+        'name': 'meta.parentheses.d'
+        'patterns': [
+          {
+            'include': '$self'
           }
         ]
       }
