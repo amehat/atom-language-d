@@ -265,10 +265,6 @@
             'contentName': 'meta.function.parameters.d'
             'patterns': [
               {
-                'match': '\\w+'
-                'name': 'variable.parameter.d'
-              }
-              {
                 'include': '#attributes'
               }
               {
@@ -276,6 +272,10 @@
               }
               {
                 'include': '#parentheses'
+              }
+              {
+                'match': '\\w+'
+                'name': 'variable.parameter.d'
               }
             ]
           }
