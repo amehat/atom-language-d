@@ -594,7 +594,11 @@
         'name': 'string.quoted.double.d'
         'patterns': [
           {
-            'match': '\\\\.'
+            'match': '\\\\[^u]'
+            'name': 'constant.character.escape.d'
+          }
+          {
+            'match': '\\\\u\\h{4}'
             'name': 'constant.character.escape.d'
           }
         ]
