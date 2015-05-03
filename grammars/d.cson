@@ -24,6 +24,9 @@
     'include': '#classes'
   }
   {
+    'include': '#templates'
+  }
+  {
     'include': '#unittests'
   }
   {
@@ -388,7 +391,11 @@
         'name': 'keyword.operator.assignment.bitwise.d'
       }
       {
-        'match': '(!|&&|\\|\\|)'
+        'match': '(&&|\\|\\|)'
+        'name': 'keyword.operator.logical.d'
+      }
+      {
+        'match': '!(?!\\s*\\()'
         'name': 'keyword.operator.logical.d'
       }
       {
@@ -560,6 +567,25 @@
         'patterns': [
           {
             'include': 'source.js.regexp'
+          }
+        ]
+      }
+    ]
+  'templates':
+    'patterns': [
+      {
+        'begin': '(!)\\s*\\('
+        'beginCaptures':
+          '1':
+            'name': 'keyword.operator.template.instantiation.d'
+        'end': '\\)'
+        'name': 'meta.template.parameter.d'
+        'patterns': [
+          {
+            'include': '#types'
+          }
+          {
+            'include': '#constants-and-special-vars'
           }
         ]
       }
