@@ -431,6 +431,10 @@
         'name': 'keyword.operator.increment-decrement.d'
       }
       {
+        'match': '\\^\\^'
+        'name': 'keyword.operator.power.d'
+      }
+      {
         'match': '<<|>>?|\\||\\^|&'
         'name': 'keyword.operator.bitwise.d'
       }
