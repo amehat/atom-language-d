@@ -55,7 +55,7 @@
         'std.format'
         'std.functionnal'
         'std.getopt'
-        'std;json'
+        'std.json'
         'std.math'
         'std.mathspecial'
         'std.metastrings'
