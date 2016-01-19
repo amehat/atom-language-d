@@ -656,6 +656,9 @@
           {
             'include': '#constants-and-special-vars'
           }
+          {
+            'include': '#strings'
+          }
         ]
       }
     ]
