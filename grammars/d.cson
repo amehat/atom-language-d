@@ -1,15 +1,12 @@
+'name': 'D'
+'scopeName': 'source.d'
 'fileTypes': [
   'd'
   'di'
 ]
-'name': 'D'
-'scopeName': 'source.d'
 'patterns': [
   {
     'include': '#comments'
-  }
-  {
-    'include': '#parentheses'
   }
   {
     'include': '#imports'
@@ -113,7 +110,7 @@
         }
       ]
     ]
-  'comments-nesting':
+  'nesting-comments':
     'patterns': [
       {
         'begin': '/\\+'
@@ -135,23 +132,19 @@
   'comments':
     'patterns': [
       {
-        'include': '#comments-nesting'
+        'include': '#nesting-comments'
       }
       {
-        'begin': '/\\*'
-        'beginCaptures':
-          '0': 'name': 'punctuation.definition.comment.begin.d'
-        'end': '\\*/'
-        'endCaptures':
-          '0': 'name': 'punctuation.definition.comment.end.d'
+        'comment': 'Block comment'
         'name': 'comment.block.d'
+        'begin': '/\\*'
+        'end': '\\*/'
       }
       {
-        'begin': '//'
-        'beginCaptures':
-          '0': 'name': 'punctuation.definition.comment.d'
-        'end': '\\n'
+        'comment': 'Single-line comment'
         'name': 'comment.line.double-slash.d'
+        'begin': '//'
+        'end': '$'
       }
     ]
   'constants-and-special-vars':
@@ -215,7 +208,7 @@
             'name': 'keyword.other.type.d'
           '2':
             'name': 'entity.name.class.d'
-        'end': '(?<=})'
+        'end': '(?=[:{])'
         'endCaptures':
           '0':
             'name': 'punctuation.section.type.end.d'
@@ -230,9 +223,6 @@
                 '#include': '#types'
               }
             ]
-          }
-          {
-            'include': '#block'
           }
         ]
       }
@@ -271,9 +261,6 @@
                 'include': '#types'
               }
               {
-                'include': '#parentheses'
-              }
-              {
                 'match': '\\w+'
                 'name': 'variable.parameter.d'
               }
@@ -306,48 +293,20 @@
             ]
           }
           {
-            'begin': '(?=in|out)'
-            'end': '\\b(?=body)'
-            'patterns': [
-              {
-                'begin': '\\b(in)\\b'
-                'beginCaptures':
-                  '0':
-                    'name': 'keyword.control.contract.pre.d'
-                'end': '(?<=})'
-                'patterns': [
-                  {
-                    'include': '#block'
-                  }
-                ]
-              }
-              {
-                'begin': '\\b(out)(?:\\s*\\(\\s*(\\w+)\\s*\\))?'
-                'beginCaptures':
-                  '1':
-                    'name': 'keyword.control.contract.post.d'
-                  '2':
-                    'name': 'variable.parameter.d'
-                'end': '(?<=})'
-                'patterns': [
-                  {
-                    'include': '#block'
-                  }
-                ]
-              }
-            ]
+            'match': '\\b(in)\\b'
+            'name': 'keyword.control.contract.pre.d'
           }
           {
-            'begin': '\\b(body)\\b|(?={)'
-            'beginCaptures':
+            'match': '\\b(out)(?:\\s*\\(\\s*(\\w+)\\s*\\))?'
+            'captures':
               '1':
-                'name': 'keyword.control.body.d'
-            'end': '(?<=})'
-            'patterns': [
-              {
-                'include': '#block'
-              }
-            ]
+                'name': 'keyword.control.contract.post.d'
+              '2':
+                'name': 'variable.parameter.d'
+          }
+          {
+            'match': '\\b(body)\\b'
+            'name': 'keyword.control.body.d'
           }
         ]
       }
@@ -552,46 +511,17 @@
   'invariants':
     'patterns': [
       {
-        'begin': '\\b(invariant)\\b'
-        'beginCaptures':
-          '0':
-            'name': 'keyword.other.invariant.d'
-        'end': '(?<=})'
-        'name': 'meta.class.invariant.d'
-        'patterns': [
-          {
-            'include': '#block'
-          }
-        ]
-      }
-    ]
-  'parentheses':
-    'patterns': [
-      {
-        'begin': '\\('
-        'end': '\\)'
-        'name': 'meta.parentheses.d'
-        'patterns': [
-          {
-            'include': '$self'
-          }
-        ]
+        'match': '\\b(invariant)\\b'
+        'name': 'keyword.other.invariant.d'
       }
     ]
   'strings':
     'patterns': [
       {
-        'begin': '"'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.d'
-        'end': '(")([cwd])?'
-        'endCaptures':
-          '1':
-            'name': 'punctuation.definition.string.end.d'
-          '2':
-            'name': 'punctuation.definition.string.postfix.d'
+        'comment': 'Double-quoted string literal'
         'name': 'string.quoted.double.d'
+        'begin': '"'
+        'end': '"[cwd]?'
         'patterns': [
           {
             'match': '\\\\[^u]'
@@ -604,39 +534,23 @@
         ]
       }
       {
+        'comment': 'WYSIWYG (raw) double-quoted string literal'
+        'name': 'string.quoted.double.raw.d'
         'begin': 'r"'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.d'
-        'end': '"([cwd])?'
-        'endCaptures':
-          '1':
-            'name': 'punctuation.definition.string.end.d'
-          '2':
-            'name': 'punctuation.definition.string.postfix.d'
-        'name': 'string.regex.d'
-        'patterns': [
-          {
-            'include': 'source.regexp.python'
-          }
-        ]
-      }
-      {
-        'begin': '`'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.d'
-        'end': '`([cwd])?'
-        'endCaptures':
-          '1':
-            'name': 'punctuation.definition.string.end.d'
-          '2':
-            'name': 'punctuation.definition.string.postfix.d'
-        'name': 'string.regex.d'
+        'end': '"[cwd]?'
         'patterns': [
           {
             'include': 'source.js.regexp'
           }
+        ]
+      }
+      {
+        'comment': 'WYSIWYG backtick string literal'
+        'name': 'string.quoted.other.raw.d'
+        'begin': '`'
+        'end': '`[cwd]?'
+        'patterns': [
+          { 'include': 'source.js.regexp' }
         ]
       }
     ]
@@ -696,16 +610,7 @@
   'unittests':
     'patterns': [
       {
-        'begin': '\\b(unittest)\\b'
-        'beginCaptures':
-          '1':
-            'name': 'keyword.other.unittest.d'
-        'end': '(?<=})'
-        'name': 'meta.unittest.d'
-        'patterns': [
-          {
-            'include': '#block'
-          }
-        ]
+        'match': '\\b(unittest)\\b'
+        'name': 'keyword.other.unittest.d'
       }
     ]
