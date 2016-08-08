@@ -243,7 +243,7 @@
             'name': 'entity.name.function.d'
           '3':
             'name': 'keyword.other.function.d'
-        'end': '(?<=})'
+        'end': '(?={|(in|out|body))'
         'name': 'meta.function.d'
         'patterns': [
           {
@@ -292,22 +292,6 @@
               }
             ]
           }
-          {
-            'match': '\\b(in)\\b'
-            'name': 'keyword.control.contract.pre.d'
-          }
-          {
-            'match': '\\b(out)(?:\\s*\\(\\s*(\\w+)\\s*\\))?'
-            'captures':
-              '1':
-                'name': 'keyword.control.contract.post.d'
-              '2':
-                'name': 'variable.parameter.d'
-          }
-          {
-            'match': '\\b(body)\\b'
-            'name': 'keyword.control.body.d'
-          }
         ]
       }
     ]
@@ -342,7 +326,7 @@
         'name': 'keyword.control.exception.d'
       }
       {
-        'match': '\\b(deprecated|mixin|pragma|new|is|in)\\b'
+        'match': '\\b(deprecated|mixin|pragma|new|is)\\b'
         'name': 'keyword.other.d'
       }
       {
@@ -444,6 +428,14 @@
       {
         'match': '\\b(op(Index)?Unary|opCast|opBinary(Right)?|opEquals|opCmp|opCall|opAssign|opIndex((Op)?Assign)?|opSlice|opDollar|opDispatch)\\b'
         'name': 'keyword.operator.overload.d'
+      }
+      {
+        'match': '\\b(in|out)\\b'
+        'name': 'keyword.control.contract.d'
+      }
+      {
+        'match': '\\b(body)\\b'
+        'name': 'keyword.control.body.d'
       }
     ]
   'module':
