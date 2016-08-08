@@ -250,6 +250,9 @@
         'name': 'meta.function.d'
         'patterns': [
           {
+            'include': '#comments'
+          }
+          {
             'begin': '\\('
             'end': '\\)'
             'contentName': 'meta.function.parameters.d'
