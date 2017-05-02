@@ -99,6 +99,8 @@
         'string'
         'super'
         'this'
+        'unittest'
+        'version'
         'void'
         'write'
         'writeln'
