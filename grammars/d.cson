@@ -227,6 +227,12 @@
   'functions':
     'patterns': [
       {
+        'match': '\\b([A-z_][A-z_0-9]*)\\s*\\('
+        'captures':
+          1:
+            'name': 'entity.name.function.d'
+      }
+      {
         'begin': '''(?x)
           ((?=\\S*\\w)[\\w\\[\\]\\(\\)\\. !,]+) # return type
           \\s+
@@ -330,10 +336,12 @@
         'name': 'keyword.other.d'
       }
       {
-        'begin': '\\b(function|delegate)\\s*\\('
+        'begin': '\\b(function|delegate)\\s*(\\s[A-z_][A-z_0-9]*)?\\s*\\('
         'beginCaptures':
-          '0':
+          '1':
             'name': 'keyword.other.function.d'
+          '2':
+            'name': 'entity.name.function.d'
         'end': '\\)'
         'patterns': [
           {

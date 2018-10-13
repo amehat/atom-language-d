@@ -1,18 +1,40 @@
 {
-  "name": "language-d",
-  "version": "3.3.0",
+  "_from": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+  "_id": "language-d@3.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-aBgxKR/ct4kGl7K0CtH0z3zGUnF8uUygg3aMRkQvFCuL4RSg7ALoibr5nN6PmSVoV/bJwV5h0SPc8izfJBYzIg==",
+  "_location": "/language-d",
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+  "_shasum": "096d307637f8001676b6c8a65ce6e3e0e3f4c6f5",
+  "_spec": "https://www.atom.io/api/packages/language-d/versions/3.3.2/tarball",
+  "_where": "/tmp/apm-install-dir-118912-20961-1lzx9c8.20o2",
+  "bugs": {
+    "url": "https://github.com/amehat/atom-language-d/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "D language support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "homepage": "https://github.com/amehat/atom-language-d",
+  "homepage": "https://github.com/Yuipas/atom-language-d",
+  "license": "MIT",
+  "name": "language-d",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amehat/atom-language-d.git"
+    "url": "git+https://github.com/Yuipas/atom-language-d.git"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amehat/atom-language-d/issues"
-  }
+  "version": "3.3.2"
 }

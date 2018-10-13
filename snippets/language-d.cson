@@ -88,7 +88,7 @@
     'body': 'default:\n\t$0'
   'for (each)':
     'prefix': 'fore'
-    'body': 'for ($1 : $2) {\n\t$0\n}'
+    'body': 'foreach ($1 ; $2) {\n\t$0\n}'
   'std.algorithm.':
     'prefix': 'std.al'
     'body': 'std.algorithm'
@@ -104,15 +104,15 @@
   'method':
     'prefix': 'm'
     'body': '${1:void} ${2:method}($3) ${4:throws $5 }{\n\t$0\n}\n'
-  'print':
-    'prefix': 'p'
-    'body': 'write($1);$0'
-  'println':
-    'prefix': 'pl'
-    'body': 'writeln($1);$0'
+  'write':
+    'prefix': 'wr'
+    'body': 'write($1);'
+  'writeln':
+    'prefix': 'wrln'
+    'body': 'writeln($1);'
   'super':
     'prefix': 'su'
-    'body': 'super($1);$0'
+    'body': 'super($1);'
   'test case':
     'prefix': 'tc'
     'body': 'public class ${1:MyTest} extends ${2:TestCase} {\n\t$0\n}'
@@ -122,3 +122,6 @@
   'while':
     'prefix': 'wh'
     'body': 'while ($1) {\n\t$0\n}'
+  'do while':
+    'prefix': 'dow'
+    'body': 'do {\n\t$1\n} while($2);'
