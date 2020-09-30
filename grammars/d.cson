@@ -596,7 +596,7 @@
       }
       {
         'match': '\\b(const|immutable|inout|shared)\\b'
-        'name': 'storage.modifier.qualifier.d'
+        'name': 'keyword.declaration.d'
       }
     ]
   'unittests':
